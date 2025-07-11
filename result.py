@@ -13,7 +13,6 @@ st.title("🎙️ AI Podcast Generator")
 
 # Set API key directly
 gemini_key = os.getenv("gemini_key")
-genai.configure(api_key=gemini_key)
 google_genai_client = genai.Client(api_key=gemini_key)
 
     # Constants - Google AI Studio voice options
