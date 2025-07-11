@@ -6,7 +6,6 @@ import wave
 import os
 import re
 import dotenv
-from playsound import playsound
 dotenv.load_dotenv()
 
 
@@ -162,8 +161,8 @@ if st.button("🎬 Generate Podcast"):
                     st.success("✅ Podcast Ready!")
                     st.audio(merged_audio)
 
-                    if st.button("▶️ Play Podcast"):
-                        playsound(merged_audio)
+                    # if st.button("▶️ Play Podcast"):
+                    #     playsound(merged_audio)
 
             except Exception as e:
                 st.error(f"Something went wrong: {e}")
