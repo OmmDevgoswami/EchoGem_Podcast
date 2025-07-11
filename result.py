@@ -28,8 +28,8 @@ def wave_file(filename, pcm, channels=1, rate=24000, sample_width=2):
 
 def generate_data(topic):
         prompt = f"I have to create podcast on topic: {topic}. Go through internet sources and give large informative paragraphs with references."
-        model = genai.GenerativeModel("gemini-1.5-flash-latest")
-        response = model.generate_content(prompt)
+        response = google_genai_client.models.generate_content(
+                model="gemini-1.5-flash-latest", contents=f"'user' : {prompt} ")
         return response.text.strip()
 
 def generate_script(num_people, data, topic):
@@ -45,8 +45,8 @@ Anya Sharma : Welcome to AI in EdTech! I'm your host Anya, and joining me is Mr.
 Ben Carter : Thanks Anya! Happy to be here.
 Only return script.
 """
-        model = genai.GenerativeModel("gemini-1.5-flash-latest")
-        response = model.generate_content(prompt)
+        response = google_genai_client.models.generate_content(
+                model="gemini-1.5-flash-latest", contents=f"'user' : {prompt} ")
         return response.text.strip()
 
 def parse_script(script_text):
