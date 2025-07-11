@@ -1,6 +1,5 @@
 import streamlit as st
-import google.generativeai as genai
-from google import genai as google_genai
+from google import genai
 from google.genai import types
 import wave
 import os
@@ -15,7 +14,7 @@ st.title("🎙️ AI Podcast Generator")
 # Set API key directly
 gemini_key = os.getenv("gemini_key")
 genai.configure(api_key=gemini_key)
-google_genai_client = google_genai.Client(api_key=gemini_key)
+google_genai_client = genai.Client(api_key=gemini_key)
 
     # Constants - Google AI Studio voice options
 VOICE_POOL = ["Kore", "Puck", "Sage", "Coral"]
